@@ -1,0 +1,207 @@
+.list-editor {
+  padding: 10px 14px 14px;
+  background: #ffffff;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.list-item-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Main Item Row ── */
+.list-item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  transition: background-color 0.12s ease;
+}
+
+.list-item-row:hover {
+  background-color: var(--input-bg);
+}
+
+.list-item-row:focus-within {
+  background-color: var(--input-bg);
+}
+
+.list-item-bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.list-item-row:focus-within .list-item-bullet {
+  opacity: 1;
+}
+
+.list-item-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  min-width: 0;
+}
+
+.list-item-input::placeholder {
+  color: var(--text-subtle);
+  font-weight: 400;
+}
+
+.list-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.list-item-row:hover .list-item-actions,
+.list-item-row:focus-within .list-item-actions {
+  opacity: 1;
+}
+
+.list-sub-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.12s ease;
+}
+
+.list-sub-add-btn:hover {
+  background-color: var(--accent-light);
+}
+
+.list-item-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-subtle);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.list-item-remove:hover:not(:disabled) {
+  background-color: var(--danger-bg);
+  color: var(--danger-color);
+}
+
+.list-item-remove:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Sub-Items ── */
+.sub-items-list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  border-left: 1.5px solid var(--panel-border);
+  padding-left: 0;
+  margin-bottom: 2px;
+}
+
+.sub-item-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 10px;
+  border-radius: 6px;
+  transition: background-color 0.12s ease;
+}
+
+.sub-item-row:hover {
+  background-color: var(--input-bg);
+}
+
+.sub-item-connector {
+  display: none;
+}
+
+.sub-item-bullet {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--text-subtle);
+}
+
+.sub-item-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  min-width: 0;
+}
+
+.sub-item-input::placeholder {
+  color: var(--text-subtle);
+}
+
+.list-item-remove.sub {
+  opacity: 0;
+  transition: opacity 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+
+.sub-item-row:hover .list-item-remove.sub {
+  opacity: 1;
+}
+
+/* ── Add Button ── */
+.list-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  color: var(--text-subtle);
+  font-family: var(--font-family);
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 6px 6px;
+  border-radius: 6px;
+  margin-top: 4px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  letter-spacing: -0.01em;
+}
+
+.list-add-btn:hover {
+  background-color: var(--input-bg);
+  color: var(--accent-color);
+}
